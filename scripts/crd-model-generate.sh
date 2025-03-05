@@ -45,6 +45,7 @@ set -e
 
 # replace preprocess_spec.py file to fix some issues
 pwd
+rm -rf preprocess_spec.py
 wget https://raw.githubusercontent.com/Layne666/kubernetes-java/refs/heads/master/scripts/preprocess_spec.py
 
 # upgrade kind version
