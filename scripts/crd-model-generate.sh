@@ -55,7 +55,7 @@ kind create cluster --image kindest/node:v1.28.15@sha256:a7c05c7ae043a0b8c818f5a
 # install CRDs to the KinD cluster and dump the swagger spec
 for url in "${CRD_URLS[@]}"; do
   if [[ ! -z $url ]]; then
-    kubectl apply -f "$url"
+    kubectl apply --server-side -f "$url"
   fi
 done
 
