@@ -32,6 +32,8 @@ jobs:
       - name: Run CRD Model Generation
         run: |
           wget https://github.com/Layne666/kubernetes-java/blob/master/scripts/crd-model-generate.sh
+          ls -l .
+          pwd
           read CRD_SRC_ARGS < <(echo '${{ github.event.inputs.crds }}' | perl -ne 'print join " ", map {"-u $_"} split /,/')
           test -z ${{ github.event.inputs.crdApiGroupPrefix }} || export CRD_API_GROUP_ARGS="-n ${{ github.event.inputs.crdApiGroupPrefix }}"
           echo "CRD Src Args: ${CRD_SRC_ARGS}"
