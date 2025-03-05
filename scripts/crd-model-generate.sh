@@ -50,9 +50,9 @@ sudo mv ./kind /usr/local/bin/kind
 kind version
 
 # upgrade docker version
-sudo apt update
-sudo apt install -y docker.io
-sudo systemctl restart docker
+apt update
+apt install -y docker.io
+systemctl restart docker
 docker --version
 
 # create a KinD cluster on the host
