@@ -105,7 +105,7 @@ def strip_delete_collection_operation_watch_params(op, parent):
     if 'parameters' in op:
         for i in range(len(op['parameters'])):
             param = op['parameters'][i]
-            if 'name' not in param:  # 与 for 缩进一致
+            if 'name' not in param:
                 print(f"Warning: Skipping parameter without 'name': {param}")
                 continue
             paramName = param['name']
