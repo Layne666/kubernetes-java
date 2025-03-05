@@ -43,6 +43,11 @@ done
 
 set -e
 
+# upgrade kind version
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+chmod +x ./kind
+mv ./kind /usr/local/bin/kind
+
 # create a KinD cluster on the host
 kind create cluster --image kindest/node:v1.28.15@sha256:a7c05c7ae043a0b8c818f5a06188bc2c4098f6cb59ca7d1856df00375d839251
 
