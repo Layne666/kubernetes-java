@@ -106,7 +106,6 @@ def strip_delete_collection_operation_watch_params(op, parent):
         for i in range(len(op['parameters'])):
             param = op['parameters'][i]
             if 'name' not in param:
-                print(f"Warning: Skipping parameter without 'name': {param}")
                 continue
             paramName = param['name']
             if paramName != WATCH_QUERY_PARAM_NAME and paramName != ALLOW_WATCH_BOOKMARKS_QUERY_PARAM_NAME:
