@@ -42,11 +42,12 @@ jobs:
             -v "$(pwd)":"$(pwd)" \
             --network host \
             ${IMAGE_NAME}:${IMAGE_TAG} \
-            /bin/sh -c "wget https://raw.githubusercontent.com/Layne666/kubernetes-java/refs/heads/master/scripts/crd-model-generate.sh && mv crd-model-generate.sh /generate.sh && chmod +x /generate.sh && /generate.sh" \
+            /bin/sh -c "wget https://raw.githubusercontent.com/Layne666/kubernetes-java/refs/heads/master/scripts/crd-model-generate.sh \
+            && mv crd-model-generate.sh /generate.sh && chmod +x /generate.sh && /generate.sh \
             ${CRD_SRC_ARGS} \
             ${CRD_API_GROUP_ARGS} \
             -p ${{ github.event.inputs.generatingJavaPackage }} \
-            -o "$(pwd)/${GEN_DIR}"
+            -o '$(pwd)/${GEN_DIR}'"
           ls -lh ${GEN_DIR}
       - uses: actions/upload-artifact@v4
         with:
