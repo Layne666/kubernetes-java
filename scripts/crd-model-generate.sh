@@ -46,7 +46,14 @@ set -e
 # upgrade kind version
 wget https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64 -O ./kind
 chmod +x ./kind
-mv ./kind /usr/local/bin/kind
+sudo mv ./kind /usr/local/bin/kind
+kind version
+
+# upgrade docker version
+sudo apt update
+sudo apt install -y docker.io
+sudo systemctl restart docker
+docker --version
 
 # create a KinD cluster on the host
 kind create cluster --image kindest/node:v1.28.15@sha256:a7c05c7ae043a0b8c818f5a06188bc2c4098f6cb59ca7d1856df00375d839251
