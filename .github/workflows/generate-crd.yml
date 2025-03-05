@@ -42,7 +42,7 @@ jobs:
             -v "$(pwd)":"$(pwd)" \
             --network host \
             ${IMAGE_NAME}:${IMAGE_TAG} \
-            /bin/sh -c "wget https://github.com/Layne666/kubernetes-java/blob/master/scripts/crd-model-generate.sh && mv crd-model-generate.sh /generate.sh && chmod +x /generate.sh && /generate.sh \
+            /bin/sh -c "wget https://github.com/Layne666/kubernetes-java/blob/master/scripts/crd-model-generate.sh && mv crd-model-generate.sh /generate.sh && chmod +x /generate.sh && /generate.sh" \
             ${CRD_SRC_ARGS} \
             ${CRD_API_GROUP_ARGS} \
             -p ${{ github.event.inputs.generatingJavaPackage }} \
