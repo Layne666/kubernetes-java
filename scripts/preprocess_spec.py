@@ -71,14 +71,13 @@ def apply_func_to_spec_operations(spec, func, *params):
             if func(v[op], v, *params):
                 del v[op]
 
-
-def _has_property(prop_list, property_name):
-    for prop in prop_list:
+def _has_property(params, property_name):
+    for prop in params:
         if 'name' not in prop:
-           continue
+            continue
         if prop["name"] == property_name:
             return True
-
+    return False
 
 def remove_watch_operations(op, parent, operation_ids):
     op_id = op['operationId']
