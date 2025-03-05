@@ -31,9 +31,6 @@ jobs:
         uses: actions/checkout@v4
       - name: Run CRD Model Generation
         run: |
-          wget https://github.com/Layne666/kubernetes-java/blob/master/scripts/crd-model-generate.sh
-          ls -l .
-          pwd
           read CRD_SRC_ARGS < <(echo '${{ github.event.inputs.crds }}' | perl -ne 'print join " ", map {"-u $_"} split /,/')
           test -z ${{ github.event.inputs.crdApiGroupPrefix }} || export CRD_API_GROUP_ARGS="-n ${{ github.event.inputs.crdApiGroupPrefix }}"
           echo "CRD Src Args: ${CRD_SRC_ARGS}"
@@ -41,12 +38,11 @@ jobs:
           mkdir -p ${GEN_DIR}
           docker run \
             --rm \
-            -v crd-model-generate.sh:/generate.sh \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$(pwd)":"$(pwd)" \
             --network host \
             ${IMAGE_NAME}:${IMAGE_TAG} \
-            /generate.sh \
+            /bin/sh -c "wget https://github.com/Layne666/kubernetes-java/blob/master/scripts/crd-model-generate.sh && mv crd-model-generate.sh /generate.sh && chmod +x /generate.sh && /generate.sh \
             ${CRD_SRC_ARGS} \
             ${CRD_API_GROUP_ARGS} \
             -p ${{ github.event.inputs.generatingJavaPackage }} \
