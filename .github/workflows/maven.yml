@@ -4,10 +4,11 @@
 name: build
 
 on:
+  workflow_dispatch:
   # push:
   #   branches: [ "master", "master-java8", "release-**" ]
-  pull_request:
-    branches: [ "master", "master-java8", "release-**" ]
+  # pull_request:
+  #   branches: [ "master", "master-java8", "release-**" ]
 
 jobs:
   verify-format:
