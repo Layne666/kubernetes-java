@@ -43,6 +43,10 @@ done
 
 set -e
 
+# replace preprocess_spec.py file to fix some issues
+pwd
+wget https://raw.githubusercontent.com/Layne666/kubernetes-java/refs/heads/master/scripts/preprocess_spec.py
+
 # upgrade kind version
 wget https://kind.sigs.k8s.io/dl/v0.19.0/kind-linux-amd64 -O ./kind
 chmod +x ./kind
