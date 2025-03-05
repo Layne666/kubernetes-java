@@ -4,8 +4,8 @@
 name: build
 
 on:
-  push:
-    branches: [ "master", "master-java8", "release-**" ]
+  # push:
+  #   branches: [ "master", "master-java8", "release-**" ]
   pull_request:
     branches: [ "master", "master-java8", "release-**" ]
 
