@@ -44,7 +44,7 @@ done
 set -e
 
 # upgrade kind version
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+wget https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd6 -O ./kind
 chmod +x ./kind
 mv ./kind /usr/local/bin/kind
 
