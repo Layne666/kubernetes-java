@@ -41,7 +41,7 @@ jobs:
           mkdir -p ${GEN_DIR}
           docker run \
             --rm \
-            -v /crd-model-generate.sh:/generate.sh \
+            -v crd-model-generate.sh:/generate.sh \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$(pwd)":"$(pwd)" \
             --network host \
