@@ -46,7 +46,7 @@ set -e
 # upgrade kind version
 wget https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64 -O ./kind
 chmod +x ./kind
-sudo mv ./kind /usr/local/bin/kind
+mv ./kind /usr/local/bin/kind
 kind version
 
 # upgrade docker version
