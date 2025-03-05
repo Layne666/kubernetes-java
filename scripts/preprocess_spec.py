@@ -74,6 +74,8 @@ def apply_func_to_spec_operations(spec, func, *params):
 
 def _has_property(prop_list, property_name):
     for prop in prop_list:
+        if 'name' not in prop:
+           continue
         if prop["name"] == property_name:
             return True
 
